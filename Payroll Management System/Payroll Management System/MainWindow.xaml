@@ -5,8 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Payroll_Management_System"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
+        Title="MainWindow" Height="310" Width="505">
+    <Grid Background="#FF2B3E50">
+        <TextBox x:Name="TextUserName" HorizontalAlignment="Left" Height="23" Margin="96,125,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="202" Background="#FFDDDDDD"/>
+        <TextBox x:Name="TextPassword" HorizontalAlignment="Left" Height="23" Margin="96,176,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="202" Background="#FFDDDDDD"/>
+        <Button x:Name="ButtonSignin" Content="Sign in" HorizontalAlignment="Left" Margin="309,247,0,0" VerticalAlignment="Top" Width="78" Height="21" Click="ButtonSignin_Click"/>
+        <Button x:Name="ButtonCancel" Content="Cancel" HorizontalAlignment="Left" Margin="402,247,0,0" VerticalAlignment="Top" Width="81" Height="21" Click="ButtonCancel_Click"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="10,125,0,0" TextWrapping="Wrap" Text="Username:" VerticalAlignment="Top" Height="23" Width="104" FontSize="16" Foreground="White"/>
+        <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" Margin="10,176,0,0" TextWrapping="Wrap" Text="Password:" VerticalAlignment="Top" Height="23" Width="104" FontSize="16" Foreground="White"/>
+        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="10,64,0,0" TextWrapping="Wrap" Text="Login" VerticalAlignment="Top" Height="33" Width="145" RenderTransformOrigin="0.497,-0.154" Foreground="White" FontSize="22"/>
     </Grid>
 </Window>

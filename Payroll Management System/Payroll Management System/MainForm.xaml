@@ -1,0 +1,63 @@
+﻿<Window x:Class="Payroll_Management_System.MainForm"
+       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Payroll_Management_System"
+        mc:Ignorable="d"
+        Title="MainForm" Height="414" Width="638">
+
+    <Grid Background="#FF3E3E42">
+        <TabControl x:Name="tabControl" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch"  Margin="100,0,0,0" Background="#FF2B3E50">
+            <TabItem Header=" Add new Employee  " Margin="-2,-2,-1,0" Background="#FFDDDDDD">
+                <Grid Background="#FF2B3E50">
+                    <TextBox x:Name="TextFirstName" HorizontalAlignment="Left" Height="23" Margin="181,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="208" Background="#FFDDDDDD"/>
+                    <TextBox x:Name="TextLastName" HorizontalAlignment="Left" Height="23" Margin="181,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="208" Background="#FFDDDDDD"/>
+                    <TextBox x:Name="TextAge" HorizontalAlignment="Left" Height="23" Margin="181,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="208" Background="#FFDDDDDD"/>
+                    <TextBox x:Name="TextLocation" HorizontalAlignment="Left" Height="23" Margin="181,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="208" Background="#FFDDDDDD"/>
+                    <TextBox x:Name="TextJobTitle" HorizontalAlignment="Left" Height="23" Margin="181,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="208" Background="#FFDDDDDD"/>
+                    <Button x:Name="OK" Content="OK" HorizontalAlignment="Left" Margin="253,282,0,0" VerticalAlignment="Top" Width="75" Click="Ok_Click" Background="#FFDDDDDD"/>
+                    <Button x:Name="Cancel" Content="Cancel" HorizontalAlignment="Left" Margin="344,282,0,0" VerticalAlignment="Top" Width="75" Background="#FFDDDDDD" Click="Cancel_Click"/>
+                    <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="49,10,0,0" TextWrapping="Wrap" Text="First Name" VerticalAlignment="Top" Height="23" Width="127" Foreground="#FFFDFDFD" FontSize="14"/>
+                    <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" Margin="49,38,0,0" TextWrapping="Wrap" Text="Last Name" VerticalAlignment="Top" Height="23" Width="127" Foreground="#FFFDFDFD" FontSize="14"/>
+                    <TextBlock x:Name="textBlock_Copy1" HorizontalAlignment="Left" Margin="49,66,0,0" TextWrapping="Wrap" Text="Age" VerticalAlignment="Top" Height="23" Width="127" Foreground="#FFFDFDFD" FontSize="14"/>
+                    <TextBlock x:Name="textBlock_Copy2" HorizontalAlignment="Left" Margin="49,94,0,0" TextWrapping="Wrap" Text="Location" VerticalAlignment="Top" Height="23" Width="127" Foreground="#FFFDFDFD" FontSize="14"/>
+                    <TextBlock x:Name="textBlock_Copy4" HorizontalAlignment="Left" Margin="49,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="23" Width="127" Foreground="#FFFDFDFD" FontSize="14"><Run Text="Job Title"/><LineBreak/><Run Text=""/></TextBlock>
+                    <TextBlock x:Name="textBlock_Copy5" HorizontalAlignment="Left" Margin="49,150,0,0" TextWrapping="Wrap" Text="Department" VerticalAlignment="Top" Height="23" Width="127" Foreground="#FFFDFDFD" FontSize="14"/>
+                    <TextBlock x:Name="textBlock_Copy6" HorizontalAlignment="Left" Margin="49,206,0,0" TextWrapping="Wrap" Text="Gender" VerticalAlignment="Top" Height="23" Width="127" Foreground="#FFFDFDFD" FontSize="14"/>
+                    <ComboBox x:Name="TextDepartment" HorizontalAlignment="Left" Margin="181,150,0,0" VerticalAlignment="Top" Width="208" Background="#FFDDDDDD">
+                        <ComboBoxItem Content="HR" HorizontalAlignment="Left" Width="206"/>
+                        <ComboBoxItem Content="IT" HorizontalAlignment="Left" Width="206"/>
+                        <ComboBoxItem Content="Finance" HorizontalAlignment="Left" Width="206"/>
+                        <ComboBoxItem Content="Sales" HorizontalAlignment="Left" Width="206"/>
+                        <ComboBoxItem Content="Support" HorizontalAlignment="Left" Width="206"/>
+                    </ComboBox>
+                    <RadioButton x:Name="male" Content="Male" HorizontalAlignment="Left" Margin="181,209,0,0" VerticalAlignment="Top"/>
+                    <RadioButton x:Name="female" Content="Female" HorizontalAlignment="Left" Margin="253,209,0,0" VerticalAlignment="Top"/>
+                    <TextBlock x:Name="textBlock_Copy7" HorizontalAlignment="Left" Margin="49,178,0,0" TextWrapping="Wrap" Text="Salary" VerticalAlignment="Top" Height="23" Width="127" Foreground="#FFFDFDFD" FontSize="14"/>
+                    <TextBox x:Name="TextSalary" HorizontalAlignment="Left" Height="23" Margin="181,178,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="208" Background="#FFDDDDDD"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="  Employee information  " Margin="0,-2,0,0">
+                <Grid Background="#FF2B3E50">
+                    <DataGrid x:Name="employeesDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="10,9,21,88" RowDetailsVisibilityMode="VisibleWhenSelected">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn x:Name="FirstNameColumn" Binding="{Binding FirstName}" Header="First Name" Width="SizeToHeader"/>
+                            <DataGridTextColumn x:Name="LastNameColumn" Binding="{Binding LastName}" Header="Last Name" Width="SizeToHeader"/>
+                            <DataGridTextColumn x:Name="AgeColumn" Binding="{Binding Age}" Header="Age" Width="SizeToHeader"/>
+                            <DataGridTextColumn x:Name="GenderColumn" Binding="{Binding Gender}" Header="Gender" Width="SizeToHeader"/>
+                            <DataGridTextColumn x:Name="LocationColumn" Binding="{Binding Location}" Header="Location" Width="SizeToHeader"/>
+                            <DataGridTextColumn x:Name="JobTitleColumn" Binding="{Binding JobTitle}" Header="JobTitle" Width="SizeToHeader"/>
+                            <DataGridTextColumn x:Name="DepartmentColumn" Binding="{Binding Department}" Header="Department" Width="SizeToHeader"/>
+                            <DataGridTextColumn x:Name="SalaryColumn" Binding="{Binding Salary}" Header="Salary" Width="SizeToHeader"/>
+                            <DataGridTextColumn x:Name="TaxColumn" Binding="{Binding Salary}" Header="Tax" Width="SizeToHeader"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button x:Name="Delete" Content="Delete" HorizontalAlignment="Left" Margin="347,296,0,0" VerticalAlignment="Top" Width="156" Background="#FFDDDDDD" Height="30" Click="Delete_Click"/>
+                    <Button x:Name="Refresh" Content="Refresh" HorizontalAlignment="Left" Margin="186,296,0,0" VerticalAlignment="Top" Width="156" Background="#FFDDDDDD" Height="30" Click="Refresh_Click"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <Button x:Name="buttonLogout" Content="Logout" HorizontalAlignment="Left" Margin="10,321,0,0" VerticalAlignment="Top" Width="85" Height="30" Click="buttonLogout_Click"/>
+    </Grid>
+</Window>
